@@ -148,7 +148,7 @@ def get_clang_tidy_warnings(
 ):
     """Get the clang-tidy warnings"""
 
-    command = f"{clang_tidy_binary} -p={build_dir} -checks={clang_tidy_checks} -line-filter={line_filter} {files}"
+    command = f"{clang_tidy_binary} -p={build_dir} -checks={clang_tidy_checks} {files}"
     print(f"Running:\n\t{command}")
 
     try:
