@@ -353,14 +353,11 @@ if __name__ == "__main__":
         # unless it's '.', in which case use all of directory
         if args.build_dir == ".":
             build_dir_index = -1
+            basedir = original_directory[:build_dir_index]
         else:
-            build_dir_index = -(len(args.build_dir) + 1)
+            build_dir_index = original_directory.find("build")
+            basedir = original_directory[:build_dir_index]
 
-        if original_directory.endswith(args.build_dir):
-            build_dir_index = -(len(args.build_dir) + 1)
-
-
-        basedir = original_directory[:build_dir_index]
         newbasedir = os.getcwd()
 
         print(f"Replacing '{basedir}' with '{newbasedir}'", flush=True)
